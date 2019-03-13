@@ -24,7 +24,20 @@ def survey_says():
     dojo = request.form['dojo']
     lang = request.form['language']
     comment = request.form['comment']
-    return render_template('results.html')
+    data = {'name':name, 'dojo':dojo, 'lang':lang, 'comment':comment}
+    return render_template('results.html', data=data)
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    db = connectToMySQL('dojo_survey')
+    data = request.form['data']
+    if 'lang' in data:
+        query = "INSERT INTO users (name) VALUES(%(name)s)"
+    else:
+        query = "INSERT INTO users (name) VALUES(%(name)s)"
+    print(data)
+    return redirect('/')
+
 
 
 if __name__ == "__main__":

@@ -8,15 +8,18 @@
     <h5 class="card-title">Survey Results</h5>
     <p>Please review the below information and make sure it is correct before submitting.</p>
   </div>
+  <form action="/submit" method="post">
+    <input type="checkbox" name='data' value="{{ data }}">Information is Correct</input>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name: {{name}}</li>
-    <li class="list-group-item">Dojo Location: {{ dojo }}</li>
-    <li class="list-group-item">Favorite Language: {{ lang }}</li>
-    <li class="list-group-item">Comments: {{ comment }}</li>
+    <li class="list-group-item">Name: {{data['name']}}</li>
+    <li class="list-group-item">Dojo Location: {{ data['dojo'] }}</li>
+    <li class="list-group-item">Favorite Language: {{ data['lang'] }}</li>
+    <li class="list-group-item">Comments: {{ data['comment'] }}</li>
   </ul>
+  <a href="/" class="btn btn-primary" class="card-link">Retake Survey</a>
   <div class="card-body">
-    <a href="/submit" class="card-link">Submit</a>
-    <a href="/" class="card-link">Retake Survey</a>
   </div
 </div>
 
