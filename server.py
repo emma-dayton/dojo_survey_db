@@ -17,9 +17,13 @@ def survey():
     print(languages)
     return render_template('survey.html', locations=locations, languages=languages)
 
-app.route('/results', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def survey_says():
     session['title'] = 'Survey Says...'
+    name = request.form['name']
+    dojo = request.form['dojo']
+    lang = request.form['language']
+    comment = request.form['comment']
     return render_template('results.html')
 
 

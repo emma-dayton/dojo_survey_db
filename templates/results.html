@@ -2,3 +2,23 @@
 {% block content %}
 <h1>Dojo Survey</h1>
 </div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ url_for('static', filename='/images/dojo.png') }}" alt="Coding Dojo logo and text">
+  <div class="card-body">
+    <h5 class="card-title">Survey Results</h5>
+    <p>Please review the below information and make sure it is correct before submitting.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name: {{name}}</li>
+    <li class="list-group-item">Dojo Location: {{ dojo }}</li>
+    <li class="list-group-item">Favorite Language: {{ lang }}</li>
+    <li class="list-group-item">Comments: {{ comment }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="/submit" class="card-link">Submit</a>
+    <a href="/" class="card-link">Retake Survey</a>
+  </div
+</div>
+
+
+{% endblock %}
