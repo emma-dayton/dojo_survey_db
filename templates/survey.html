@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Edit User</h1>
+</div>
+<form action="/users/{{user.id}}/update" method="post">
+  <div class="form-group">
+    <label for="fname">Name</label>
+    <input type="text" class="form-control" id="fname" name="fname"
+        placeholder="Full Name"'>
+  </div>
+  <div class="form-group">
+    <label for="dojo">Dojo Location</label>
+    <select class="form-control" id="dojo" name="dojo"
+        aria-describedby="emailHelp" placeholder="Select Dojo">
+        {% for location in locations %}
+          <option>{{ location }}</option>
+        {% endfor %}
+    <small id="emailHelp" class="form-text text-muted">
+      We'll share your email with anyone who asks. And many who don't.
+    </small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<a href='/users'>Aw, nevermind.</a>
+{% endblock %}
