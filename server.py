@@ -17,6 +17,10 @@ def survey():
     print(languages)
     return render_template('survey.html', locations=locations, languages=languages)
 
+app.route('/results', methods=['POST'])
+def survey_says():
+    session['title'] = 'Survey Says...'
+    return render_template('results.html')
 
 
 if __name__ == "__main__":

@@ -2,29 +2,35 @@
 {% block content %}
 <h1>Dojo Survey</h1>
 </div>
-<form action="/">
+<form action="/results" style="margin-right: 50px;">
   <div class="form-group">
     <label for="fname">Name</label>
     <input type="text" class="form-control" id="fname" name="fname"
         placeholder="Full Name"'>
   </div>
-  <div class="form-group">
-    <label for="dojo">Dojo Location</label>
-    <select class="form-control" id="dojo" name="dojo"
-        aria-describedby="emailHelp" placeholder="Select Dojo">
-        {% for location in locations %}
-          <option>{{ location['city'] }}, {{ location['state'] }}</option>
-        {% endfor %}
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="dojo">Dojo Location</label>
-    <select class="form-control" id="language" name="language"
-        aria-describedby="emailHelp" placeholder="Select Language">
-        {% for language in languages %}
-          <option>{{ language['lang_name'] }}</option>
-        {% endfor %}
-    </select>
+  <div class='form-row'>
+    <div class="col-sm-20">
+      <label for="dojo">Dojo Location</label>
+    </div>
+    <div class="col">
+      <select class="form-control" id="dojo" name="dojo" required='dojo'>
+        <option value="None">Select Dojo</option>
+          {% for location in locations %}
+            <option>{{ location['city'] }}, {{ location['state'] }}</option>
+          {% endfor %}
+      </select>
+    </div>
+    <div class="col-sm-20">
+      <label for="dojo">Favorite Language</label>
+    </div>
+    <div class="col">
+      <select class="form-control col" id="language" name="language">
+        <option value="None">Select Language</option>
+          {% for language in languages %}
+            <option>{{ language['lang_name'] }}</option>
+          {% endfor %}
+      </select>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
