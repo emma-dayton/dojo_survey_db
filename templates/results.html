@@ -1,24 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Dojo Survey</h1>
-</div>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{ url_for('static', filename='/images/dojo.png') }}" alt="Coding Dojo logo and text">
-  <div class="card-body">
+<div class="card" style="margin-right: 25px;"><div class="card-body">
     <h5 class="card-title">Survey Results</h5>
     <p>Please review the below information and make sure it is correct before submitting.</p>
   </div>
-  <form action="/submit" method='post'>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name: {{data['name']}}</li>
-      <li class="list-group-item">Dojo Location: {{ data['dojo'] }}</li>
-      <li class="list-group-item">Favorite Language: {{ data['lang'] }}</li>
-      <li class="list-group-item">Comments: {{ data['comment'] }}</li>
+      <li class="list-group-item"><span class="text-info">Name:</span> {{data['name']}}</li>
+      <li class="list-group-item"><span class="text-info">Dojo Location:</span> {{ data['dojo'] }}</li>
+      <li class="list-group-item"><span class="text-info">Favorite Language:</span> {{ data['lang'] }}</li>
+      <li class="list-group-item"><span class="text-info">Comments:</span> {{ data['comment'] }}</li>
     </ul>
-    <input type="checkbox" name='data' value="{{ data }}">Information is Correct</input>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  <a href="/" class="btn btn-primary" class="card-link">Retake Survey</a>
+  <h6 style="margin: 10px 25px;"> If information is correct:</h6>
+  <a href="/submit" class="btn btn-primary" style="margin:0px 25px; width: 200px;">Submit</a>
+  <h6 style="margin: 10px 25px;">Otherwise:</h6>
+  <a href="/" class="btn btn-primary" class="card-link" style="margin:0px 25px; width: 200px;">Retake Survey</a>
   <div class="card-body">
   </div
 </div>

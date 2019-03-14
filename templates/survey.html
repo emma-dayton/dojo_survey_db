@@ -1,44 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Dojo Survey</h1>
-</div>
 <div class="card" style="margin-right: 25px;">
-  <img class="card-img-top" src="{{ url_for('static', filename='/images/dojo.png') }}" alt="Coding Dojo logo and text">
   <div class="card-body">
   <form action="/results" method="post" style="margin-right: 25px;">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name"
           placeholder="Full Name"'>
-      <div class='form-row'>
+      <div class='form-row' style="margin-top: 10px;">
         <div class="col-sm-20">
-          <label for="dojo">Dojo Location</label>
+          <label for="dojo" style="margin-top: 10px;">Dojo Location</label>
         </div>
         <div class="col">
           <select class="form-control" id="dojo" name="dojo" required='dojo'>
-            <option value="None">Select Dojo</option>
               {% for location in locations %}
                 <option>{{ location['city'] }}, {{ location['state'] }}</option>
               {% endfor %}
           </select>
         </div>
         <div class="col-sm-20">
-          <label for="dojo">Favorite Language</label>
+          <label for="dojo" style="margin-top: 10px;">Favorite Language</label>
         </div>
         <div class="col">
           <select class="form-control col" id="language" name="language">
-            <option value="None">Select Language</option>
               {% for language in languages %}
                 <option>{{ language['lang_name'] }}</option>
               {% endfor %}
           </select>
         </div>
       </div>
-      <label for="comment">Comments (max length 120 characters):</label>
-      <textarea type='text' name='comment' class="form-control" rows=3></textarea>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
-  <a href='/users'>Aw, nevermind.</a>
+        <label for="comment" style="margin-top: 10px;">Comments (max length 120 characters):</label>
+        <textarea type='text' name='comment' class="form-control" rows=3></textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}
